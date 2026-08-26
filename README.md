@@ -1,4 +1,4 @@
-# swift-navigation-primitives
+# swift-navigation
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -31,7 +31,7 @@ shell-independent presentation — as pure values with no runtime attached.
 ## Quick Start
 
 ```swift
-import Navigation_Primitives
+import Navigation
 
 enum Screen: Hashable, Sendable {
     case list
@@ -64,7 +64,7 @@ let inspector = Navigation.Presentation(mode: .modeless, dismissal: .user)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-navigation-primitives.git", branch: "main")
+    .package(url: "https://github.com/swift-molecules/swift-navigation.git", branch: "main")
 ]
 ```
 
@@ -72,13 +72,13 @@ dependencies: [
 .target(
     name: "YourTarget",
     dependencies: [
-        .product(name: "Navigation Primitives", package: "swift-navigation-primitives")
+        .product(name: "Navigation", package: "swift-navigation")
     ]
 )
 ```
 
 Requires Swift 6.3.3. Platform minimums: macOS 26, iOS 26, tvOS 26, watchOS 26, visionOS 26. The
-package's only dependency is `swift-tagged-primitives`, which it re-exports; it imports no
+package's only dependency is `swift-tagged`, which it re-exports; it imports no
 Foundation and uses no reflection or Objective-C interop. Its Embedded build is verified in CI, as
 is the dependency's.
 
@@ -90,7 +90,7 @@ One library product over a single source module.
 
 | Product | When to import |
 |---------|----------------|
-| `Navigation Primitives` | Describing navigation state as values, in any execution context. |
+| `Navigation` | Describing navigation state as values, in any execution context. |
 
 Key types in the `Navigation` namespace:
 
