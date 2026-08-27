@@ -1,4 +1,4 @@
-# swift-navigation
+# Navigation
 
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
@@ -64,7 +64,7 @@ let inspector = Navigation.Presentation(mode: .modeless, dismissal: .user)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-molecules/swift-navigation.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-navigation.git", branch: "main")
 ]
 ```
 
@@ -72,25 +72,30 @@ dependencies: [
 .target(
     name: "YourTarget",
     dependencies: [
-        .product(name: "Navigation", package: "swift-navigation")
+        .product(name: "Navigation", package: "swift-navigation"),
     ]
 )
 ```
 
-Requires Swift 6.3.3. Platform minimums: macOS 26, iOS 26, tvOS 26, watchOS 26, visionOS 26. The
-package's only dependency is `swift-tagged`, which it re-exports; it imports no
-Foundation and uses no reflection or Objective-C interop. Its Embedded build is verified in CI, as
-is the dependency's.
+The package uses Swift tools 6.4 and declares Apple platform version 27. Its
+only dependency is the canonical
+[`swift-tagged`](https://github.com/swift-atoms/swift-tagged) atom, which the
+core product publicly imports. Foundation is isolated to the Apple Foundation
+integration target.
 
 ---
 
 ## Architecture
 
-One library product over a single source module.
+Three library products preserve the atom integration boundaries.
 
 | Product | When to import |
 |---------|----------------|
 | `Navigation` | Describing navigation state as values, in any execution context. |
+| `Navigation Standard Library Integration` | Standard-library integration surface. |
+| `Navigation Apple Foundation Integration` | Apple Foundation integration and the package's only Foundation dependency. |
+
+The core source is Foundation-free and designed for Embedded Swift.
 
 Key types in the `Navigation` namespace:
 
