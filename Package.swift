@@ -15,11 +15,19 @@ let package = Package(
         .library(
             name: "Navigation",
             targets: ["Navigation"]
-        )
+        ),
+        .library(
+            name: "Navigation Standard Library Integration",
+            targets: ["Navigation Standard Library Integration"]
+        ),
+        .library(
+            name: "Navigation Apple Foundation Integration",
+            targets: ["Navigation Apple Foundation Integration"]
+        ),
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-tagged.git",
+            url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         )
     ],
@@ -28,6 +36,17 @@ let package = Package(
             name: "Navigation",
             dependencies: [
                 .product(name: "Tagged", package: "swift-tagged")
+            ]
+        ),
+        .target(
+            name: "Navigation Standard Library Integration",
+            dependencies: ["Navigation"]
+        ),
+        .target(
+            name: "Navigation Apple Foundation Integration",
+            dependencies: [
+                "Navigation",
+                "Navigation Standard Library Integration",
             ]
         ),
         .testTarget(

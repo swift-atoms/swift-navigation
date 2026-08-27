@@ -1,4 +1,5 @@
 import Navigation
+import Tagged
 import Testing
 
 @Suite struct `Navigation Identity Tests` {
