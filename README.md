@@ -64,7 +64,7 @@ let inspector = Navigation.Presentation(mode: .modeless, dismissal: .user)
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-molecules/swift-navigation.git", branch: "main")
+    .package(url: "https://github.com/swift-atoms/swift-navigation.git", branch: "main")
 ]
 ```
 
@@ -90,7 +90,7 @@ One library product over a single source module.
 
 | Product | When to import |
 |---------|----------------|
-| `Navigation` | Describing navigation state as values, in any execution context. |
+| `Navigation` | The base namespace for describing navigation state as values, in any execution context. |
 
 Key types in the `Navigation` namespace:
 
