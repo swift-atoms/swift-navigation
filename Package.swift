@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-navigation-primitives",
+    name: "swift-navigation",
     platforms: [
         .macOS(.v27),
         .iOS(.v27),
@@ -13,27 +13,27 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Navigation Primitives",
-            targets: ["Navigation Primitives"]
+            name: "Navigation",
+            targets: ["Navigation"]
         )
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-primitives/swift-tagged-primitives.git",
+            url: "https://github.com/swift-atoms/swift-tagged.git",
             branch: "main"
         )
     ],
     targets: [
         .target(
-            name: "Navigation Primitives",
+            name: "Navigation",
             dependencies: [
-                .product(name: "Tagged Primitives", package: "swift-tagged-primitives")
+                .product(name: "Tagged", package: "swift-tagged")
             ]
         ),
         .testTarget(
-            name: "Navigation Primitives Tests",
+            name: "Navigation Tests",
             dependencies: [
-                "Navigation Primitives"
+                .target(name: "Navigation")
             ]
         ),
     ],

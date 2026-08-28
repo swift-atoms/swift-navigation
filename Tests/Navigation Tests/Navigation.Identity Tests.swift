@@ -1,4 +1,4 @@
-import Navigation_Primitives
+import Navigation
 import Testing
 
 @Suite struct `Navigation Identity Tests` {
