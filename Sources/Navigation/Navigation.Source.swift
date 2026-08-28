@@ -15,12 +15,12 @@ extension Navigation {
 extension Navigation.Source {
 
     public init() {
-        self.init(next: Navigation.Identity(_unchecked: 0))
+        self.init(next: Navigation.Identity(0))
     }
 
     public mutating func mint() -> Navigation.Identity {
         let minted = next
-        next = Navigation.Identity(_unchecked: minted.underlying + 1)
+        next = Navigation.Identity(minted.underlying + 1)
         return minted
     }
 }

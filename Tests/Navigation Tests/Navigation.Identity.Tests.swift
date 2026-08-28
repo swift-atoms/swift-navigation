@@ -1,5 +1,4 @@
 import Navigation
-import Tagged
 import Testing
 
 @Suite struct `Navigation Identity Tests` {
@@ -74,7 +73,7 @@ extension `Navigation Identity Tests`.Unit {
 
 extension `Navigation Identity Tests`.`Edge Case` {
     @Test func `a restored source resumes from the recorded ordinal`() {
-        var source = Navigation.Source(next: Navigation.Identity(_unchecked: 41))
+        var source = Navigation.Source(next: Navigation.Identity(41))
 
         #expect(source.mint().underlying == 41)
         #expect(source.next.underlying == 42)
