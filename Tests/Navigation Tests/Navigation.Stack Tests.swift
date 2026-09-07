@@ -1,10 +1,10 @@
 import Navigation
 import Testing
 
-@Suite struct `Navigation Stack Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
+@Suite struct `Navigation stacks preserve ordered placements with unique identities` {
+    @Suite struct `Navigation stack operations preserve placement order and structural equality` {}
+    @Suite struct `Navigation stack failures preserve state and reject duplicate or absent identities` {}
+    @Suite struct `No navigation stack integration cases are defined` {}
 
     enum Screen: Sendable, Hashable {
         case list
@@ -21,9 +21,9 @@ import Testing
     }
 }
 
-extension `Navigation Stack Tests`.Unit {
-    typealias Screen = `Navigation Stack Tests`.Screen
-    typealias Placer = `Navigation Stack Tests`.Placer
+extension `Navigation stacks preserve ordered placements with unique identities`.`Navigation stack operations preserve placement order and structural equality` {
+    typealias Screen = `Navigation stacks preserve ordered placements with unique identities`.Screen
+    typealias Placer = `Navigation stacks preserve ordered placements with unique identities`.Placer
 
     @Test func `a new stack holds nothing`() {
         let stack = Navigation.Stack<Screen>()
@@ -137,9 +137,9 @@ extension `Navigation Stack Tests`.Unit {
     }
 }
 
-extension `Navigation Stack Tests`.`Edge Case` {
-    typealias Screen = `Navigation Stack Tests`.Screen
-    typealias Placer = `Navigation Stack Tests`.Placer
+extension `Navigation stacks preserve ordered placements with unique identities`.`Navigation stack failures preserve state and reject duplicate or absent identities` {
+    typealias Screen = `Navigation stacks preserve ordered placements with unique identities`.Screen
+    typealias Placer = `Navigation stacks preserve ordered placements with unique identities`.Placer
 
     @Test func `popping an empty stack returns nothing`() {
         var stack = Navigation.Stack<Screen>()

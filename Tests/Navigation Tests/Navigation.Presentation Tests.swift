@@ -2,12 +2,12 @@ import Navigation
 import Testing
 
 extension Navigation.Presentation {
-    @Suite struct Test {
-        @Suite struct Unit {}
+    @Suite struct `Navigation presentations pair independent modes and dismissal authorities` {
+        @Suite struct `Presentation equality cases and errors preserve both axes` {}
     }
 }
 
-extension Navigation.Presentation.Test.Unit {
+extension Navigation.Presentation.`Navigation presentations pair independent modes and dismissal authorities`.`Presentation equality cases and errors preserve both axes` {
     @Test func `a presentation carries exactly a mode and a dismissal`() {
         let sheet = Navigation.Presentation(mode: .modal, dismissal: .user)
 
