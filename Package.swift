@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Navigation", targets: ["Navigation"]),
-        .library(name: "Navigation Standard Library Integration", targets: ["Navigation Standard Library Integration"]),
-        .library(name: "Navigation Foundation Library Integration", targets: ["Navigation Foundation Library Integration"]),
+
+        .library(name: "Navigation Foundation Integration", targets: ["Navigation Foundation Integration"]),
         .library(name: "Navigation Test Support", targets: ["Navigation Test Support"]),
     ],
     dependencies: [
@@ -31,20 +31,13 @@ let package = Package(
             ],
             path: "Sources/Navigation"
         ),
+        
         .target(
-            name: "Navigation Standard Library Integration",
+            name: "Navigation Foundation Integration",
             dependencies: [
                 .target(name: "Navigation"),
             ],
-            path: "Sources/Navigation Standard Library Integration"
-        ),
-        .target(
-            name: "Navigation Foundation Library Integration",
-            dependencies: [
-                .target(name: "Navigation"),
-                .target(name: "Navigation Standard Library Integration"),
-            ],
-            path: "Sources/Navigation Foundation Library Integration"
+            path: "Sources/Navigation Foundation Integration"
         ),
         .target(
             name: "Navigation Test Support",
@@ -58,8 +51,7 @@ let package = Package(
             dependencies: [
                 .target(name: "Navigation"),
                 .target(name: "Navigation Test Support"),
-                .target(name: "Navigation Standard Library Integration"),
-                .target(name: "Navigation Foundation Library Integration"),
+                .target(name: "Navigation Foundation Integration"),
             ],
             path: "Tests/Navigation Tests"
         ),

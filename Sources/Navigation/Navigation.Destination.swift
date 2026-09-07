@@ -13,6 +13,8 @@ extension Navigation {
     }
 }
 
-extension Navigation.Destination: Sendable where Value: Sendable {}
-extension Navigation.Destination: Equatable where Value: Equatable {}
-extension Navigation.Destination: Hashable where Value: Hashable {}
+extension Navigation.Destination: Swift.Sendable where Value: Swift.Sendable {}
+
+extension Navigation.Destination: Swift.Equatable where Value: Swift.Equatable {}
+
+extension Navigation.Destination: Swift.Hashable where Value: Swift.Hashable {}
