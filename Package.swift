@@ -12,10 +12,10 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        .library(
-            name: "Navigation",
-            targets: ["Navigation"]
-        )
+        .library(name: "Navigation", targets: ["Navigation"]),
+        .library(name: "Navigation Standard Library Integration", targets: ["Navigation Standard Library Integration"]),
+        .library(name: "Navigation Foundation Library Integration", targets: ["Navigation Foundation Library Integration"]),
+        .library(name: "Navigation Test Support", targets: ["Navigation Test Support"]),
     ],
     dependencies: [
         .package(
@@ -27,21 +27,48 @@ let package = Package(
         .target(
             name: "Navigation",
             dependencies: [
-                .product(name: "Tagged", package: "swift-tagged")
-            ]
+                .product(name: "Tagged", package: "swift-tagged"),
+            ],
+            path: "Sources/Navigation"
+        ),
+        .target(
+            name: "Navigation Standard Library Integration",
+            dependencies: [
+                .target(name: "Navigation"),
+            ],
+            path: "Sources/Navigation Standard Library Integration"
+        ),
+        .target(
+            name: "Navigation Foundation Library Integration",
+            dependencies: [
+                .target(name: "Navigation"),
+                .target(name: "Navigation Standard Library Integration"),
+            ],
+            path: "Sources/Navigation Foundation Library Integration"
+        ),
+        .target(
+            name: "Navigation Test Support",
+            dependencies: [
+                .target(name: "Navigation"),
+            ],
+            path: "Tests/Support"
         ),
         .testTarget(
             name: "Navigation Tests",
             dependencies: [
-                .target(name: "Navigation")
-            ]
+                .target(name: "Navigation"),
+                .target(name: "Navigation Test Support"),
+                .target(name: "Navigation Standard Library Integration"),
+                .target(name: "Navigation Foundation Library Integration"),
+            ],
+            path: "Tests/Navigation Tests"
         ),
     ],
     swiftLanguageModes: [.v6]
 )
 
-for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    let ecosystem: [SwiftSetting] = [
+for target in package.targets {
+    target.swiftSettings = [
         .strictMemorySafety(),
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
@@ -50,8 +77,4 @@ for target in package.targets where ![.system, .binary, .plugin, .macro].contain
         .enableExperimentalFeature("Lifetimes"),
         .enableUpcomingFeature("InferIsolatedConformances"),
     ]
-
-    let package: [SwiftSetting] = []
-
-    target.swiftSettings = (target.swiftSettings ?? []) + ecosystem + package
 }
