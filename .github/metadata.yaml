@@ -1,4 +1,3 @@
-# .github/metadata.yaml
 description: "Navigation-state algebra for Swift — identified destination placement, ordered stacks, and shell-independent presentation, Foundation-free and Embedded-deployable."
 topics:
   - primitives
