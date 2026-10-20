@@ -27,22 +27,22 @@ let package = Package(
         .target(
             name: "Navigation",
             dependencies: [
-                .product(name: "Tagged", package: "swift-tagged"),
+                .product(name: "Tagged", package: "swift-tagged")
             ],
             path: "Sources/Navigation"
         ),
-        
+
         .target(
             name: "Navigation Foundation Integration",
             dependencies: [
-                .target(name: "Navigation"),
+                .target(name: "Navigation")
             ],
             path: "Sources/Navigation Foundation Integration"
         ),
         .target(
             name: "Navigation Test Support",
             dependencies: [
-                .target(name: "Navigation"),
+                .target(name: "Navigation")
             ],
             path: "Tests/Support"
         ),
@@ -60,14 +60,15 @@ let package = Package(
 )
 
 for target in package.targets where ![.system, .binary, .plugin].contains(target.type) {
-    target.swiftSettings = (target.swiftSettings ?? []) + [
-        .strictMemorySafety(),
-        .enableUpcomingFeature("ExistentialAny"),
-        .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-        .enableUpcomingFeature("InferIsolatedConformances"),
-        .enableExperimentalFeature("Lifetimes"),
-        .treatAllWarnings(as: .error),
-    ]
+    target.swiftSettings =
+        (target.swiftSettings ?? []) + [
+            .strictMemorySafety(),
+            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("InternalImportsByDefault"),
+            .enableUpcomingFeature("MemberImportVisibility"),
+            .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+            .enableUpcomingFeature("InferIsolatedConformances"),
+            .enableExperimentalFeature("Lifetimes"),
+            .treatAllWarnings(as: .error),
+        ]
 }

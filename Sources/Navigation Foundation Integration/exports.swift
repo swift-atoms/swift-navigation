@@ -1,2 +1,2 @@
-@_exported public import Navigation
 import Foundation
+@_exported public import Navigation
