@@ -1,13 +1,15 @@
 import Navigation
 import Testing
 
-extension Navigation.Presentation {
+enum `Navigation.Presentation Tests` {}
+
+extension `Navigation.Presentation Tests` {
     @Suite struct `Navigation presentations pair independent modes and dismissal authorities` {
         @Suite struct `Presentation equality cases and errors preserve both axes` {}
     }
 }
 
-extension Navigation.Presentation.`Navigation presentations pair independent modes and dismissal authorities`.`Presentation equality cases and errors preserve both axes` {
+extension `Navigation.Presentation Tests`.`Navigation presentations pair independent modes and dismissal authorities`.`Presentation equality cases and errors preserve both axes` {
     @Test func `a presentation carries exactly a mode and a dismissal`() {
         let sheet = Navigation.Presentation(mode: .modal, dismissal: .user)
 
