@@ -69,3 +69,18 @@ extension Navigation.Stack: Swift.Sendable where Value: Swift.Sendable {}
 extension Navigation.Stack: Swift.Equatable where Value: Swift.Equatable {}
 
 extension Navigation.Stack: Swift.Hashable where Value: Swift.Hashable {}
+
+extension Navigation.Stack: Swift.RandomAccessCollection {
+
+    public typealias Element = Navigation.Destination<Value>
+
+    public typealias Index = Int
+
+    public var startIndex: Int { placed.startIndex }
+
+    public var endIndex: Int { placed.endIndex }
+
+    public subscript(position: Int) -> Navigation.Destination<Value> {
+        placed[position]
+    }
+}
