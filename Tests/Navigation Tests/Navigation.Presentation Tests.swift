@@ -5,8 +5,11 @@ enum `Navigation.Presentation Tests` {}
 
 extension `Navigation.Presentation Tests` {
     @Suite struct `Navigation presentations pair independent modes and dismissal authorities` {
-        @Suite struct `Presentation equality cases and errors preserve both axes` {}
     }
+}
+
+extension `Navigation.Presentation Tests`.`Navigation presentations pair independent modes and dismissal authorities` {
+    @Suite struct `Presentation equality cases and errors preserve both axes` {}
 }
 
 extension `Navigation.Presentation Tests`.`Navigation presentations pair independent modes and dismissal authorities`.`Presentation equality cases and errors preserve both axes` {

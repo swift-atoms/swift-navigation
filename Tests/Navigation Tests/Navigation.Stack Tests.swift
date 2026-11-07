@@ -2,9 +2,6 @@ import Navigation
 import Testing
 
 @Suite struct `Navigation stacks preserve ordered placements with unique identities` {
-    @Suite struct `Navigation stack operations preserve placement order and structural equality` {}
-    @Suite struct `Navigation stack failures preserve state and reject duplicate or absent identities` {}
-    @Suite struct `No navigation stack integration cases are defined` {}
 
     enum Screen: Sendable, Hashable {
         case list
@@ -19,6 +16,14 @@ import Testing
             Navigation.Destination(identity: source.mint(), value: screen)
         }
     }
+}
+
+extension `Navigation stacks preserve ordered placements with unique identities` {
+    @Suite struct `Navigation stack operations preserve placement order and structural equality` {}
+
+    @Suite struct `Navigation stack failures preserve state and reject duplicate or absent identities` {}
+
+    @Suite struct `No navigation stack integration cases are defined` {}
 }
 
 extension `Navigation stacks preserve ordered placements with unique identities`.`Navigation stack operations preserve placement order and structural equality` {

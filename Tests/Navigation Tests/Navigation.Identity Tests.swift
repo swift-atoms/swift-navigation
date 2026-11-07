@@ -1,13 +1,22 @@
 import Navigation
 import Testing
 
-@Suite struct `Navigation identities preserve ordinal minting and source value semantics` {
+enum `Navigation.Identity Tests` {}
+
+extension `Navigation.Identity Tests` {
+    @Suite struct `Navigation identities preserve ordinal minting and source value semantics` {
+    }
+}
+
+extension `Navigation.Identity Tests`.`Navigation identities preserve ordinal minting and source value semantics` {
     @Suite struct `Identity sources mint ordered distinct values and reproduce recorded placements` {}
+
     @Suite struct `Restored and independent identity sources preserve ordinal comparison` {}
+
     @Suite struct `No navigation identity integration cases are defined` {}
 }
 
-extension `Navigation identities preserve ordinal minting and source value semantics`.`Identity sources mint ordered distinct values and reproduce recorded placements` {
+extension `Navigation.Identity Tests`.`Navigation identities preserve ordinal minting and source value semantics`.`Identity sources mint ordered distinct values and reproduce recorded placements` {
     @Test func `a fresh source mints from zero`() {
         var source = Navigation.Source()
 
@@ -71,7 +80,7 @@ extension `Navigation identities preserve ordinal minting and source value seman
     }
 }
 
-extension `Navigation identities preserve ordinal minting and source value semantics`.`Restored and independent identity sources preserve ordinal comparison` {
+extension `Navigation.Identity Tests`.`Navigation identities preserve ordinal minting and source value semantics`.`Restored and independent identity sources preserve ordinal comparison` {
     @Test func `a restored source resumes from the recorded ordinal`() {
         var source = Navigation.Source(next: Navigation.Identity(41))
 
